@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+	
+<BorderPane xmlns:fx="http://javafx.com/fxml"  fx:controller="theftdetection2.FXMLController">
+	<right>
+		<VBox alignment="CENTER" spacing="10">
+			<padding>
+				<Insets right="10" left="10" />
+			</padding>
+			<Label text="Min Blob Area" />
+                        <Label text="(0.1 to 5% of the size of the video)" />
+			<Slider fx:id="minBlob" min="0.1" max="5" value="1" blockIncrement="0.1" />
+			<Label text="Max Blob Area" />
+                        <Label text="(1.5 to 15% of the size of the video)" />
+			<Slider fx:id="maxBlob" min="1.5" max="15" value="2" blockIncrement="0.5" />
+                        <Label text="Learning Rate (of the background subtraction)" />
+			<Slider fx:id="learningRate" min="0" max="0.01" value="0.005" blockIncrement="0.0005" />
+                        <Label text="Threshold" />
+			<Slider fx:id="threshold" min="0" max="255" value="27" blockIncrement="1" />
+                        <Label text="Distance Tolerance" />
+                        <Label text="(1 to 5% of the diagonal  of the video)" />
+			<Slider fx:id="distTolerance" min="1" max="5" value="2" blockIncrement="0.1" />
+                        <Label text="Area Tolerance" />
+                        <Label text="(50 to 100% of the previous frame's object)" />
+			<Slider fx:id="areaTolerance" min="50" max="100" value="50" blockIncrement="1" />
+                        <TextField id="textField1" fx:id="userId" />
+		</VBox>
+	</right>
+	<center>
+		<HBox alignment="CENTER" spacing="5">
+			<padding>
+				<Insets right="10" left="10" />
+			</padding>
+                        <ImageView fx:id="originalFrame" />
+                        <ImageView fx:id="backgroundSubtractionImage" />
+                        
+			<VBox alignment="CENTER" spacing="5">
+                        
+                                <!--
+				<ImageView fx:id="maskImage" />
+				<ImageView fx:id="morphImage" />-->
+			</VBox>
+		</HBox>
+	</center>
+	<bottom>
+		<VBox alignment="CENTER" spacing="15">
+			<padding>
+				<Insets top="25" right="25" bottom="25" left="25" />
+			</padding>
+                        
+			<Button fx:id="cameraButton" alignment="center" text="Start camera" onAction="#startCamera" />
+                        
+			<Separator />
+			<Label fx:id="CurrentValues" />
+		</VBox>
+	</bottom>
+        
+        <!--
+        <stylesheets>
+        <URL value="@Login.css" />
+        </stylesheets>
+        -->
+</BorderPane>
